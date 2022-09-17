@@ -2,8 +2,8 @@
 FROM ruby:3.1.1
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /calendar
-COPY calendar/Gemfile /codelitt_calendar/Gemfile
-COPY calendar/Gemfile.lock /codelitt_calendar/Gemfile.lock
+COPY calendar/Gemfile /calendar/Gemfile
+COPY calendar/Gemfile.lock /calendar/Gemfile.lock
 RUN bundle install
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add
