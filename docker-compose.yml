@@ -5,7 +5,10 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
+      - "POSTGRES_PASSWORD=password"
+      - "POSTGRES_USER=postgres"
+    ports:
+      - "5432:5432"
   web-prod:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -26,6 +29,7 @@ services:
     depends_on:
       - db
     links:
+      - db
       - chrome-server
     profiles: ["test"]
   chrome-server:
