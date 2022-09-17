@@ -1,0 +1,98 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {
+       title: "One Test",
+       description: "Description Test",
+       start_datetime: 'Wed, 20 Jun 2022 08:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 20 Jun 2022 09:00:00.000000000 UTC +00:00',
+       user: default_user
+}
+
+two: {
+       title: "Two Test",
+       description: "Description Test",
+       start_datetime: 'Wed, 20 Jun 2022 10:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 23 Jun 2022 11:00:00.000000000 UTC +00:00'
+}
+
+three: {
+       title: "Three Test",
+       description: "Description Test",
+       start_datetime: 'Wed, 23 Jun 2022 08:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 24 Jun 2022 09:00:00.000000000 UTC +00:00'
+}
+
+four: {
+       title: "Four Test",
+       description: "Description Test",
+       start_datetime: 'Wed, 24 Jun 2022 09:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 24 Jun 2022 10:00:00.000000000 UTC +00:00'
+}
+
+five: {
+       title: "Five Test",
+       description: "Description Test",
+       start_datetime: 'Wed, 24 Jun 2022 09:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 25 Jun 2022 12:00:00.000000000 UTC +00:00'
+}
+
+to_show_more_1: {
+       title: "1 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+to_show_more_2: {
+       title: "2 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+to_show_more_3: {
+       title: "3 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+to_show_more_4: {
+       title: "4 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+to_show_more_5: {
+       title: "5 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+to_show_more_6: {
+       title: "6 To show more",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_end_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_end_of_month + 9.hours %>
+}
+
+edit_reminder: {
+       title: "Edit Reminder",
+       description: "Description Test",
+       start_datetime: <%= Date.today.at_beginning_of_month + 8.hours %>,
+       end_datetime: <%= Date.today.at_beginning_of_month+ 9.hours %>,
+       user: default_user
+}
+
+deleted: {
+       title: "Deleted Reminder",
+       description: "Description Test",
+       start_datetime: 'Wed, 01 Jul 2022 08:00:00.000000000 UTC +00:00',
+       end_datetime: 'Wed, 01 Jul 2022 09:00:00.000000000 UTC +00:00'
+}

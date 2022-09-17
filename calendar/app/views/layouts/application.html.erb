@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= favicon_link_tag asset_path('favicon.png') %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+<% if not user_signed_in? or not current_page?(root_path) %>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Calendar Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <% if current_page?(root_path) %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn-dark" %>
+      <% elsif current_page?(edit_user_registration_path) %>
+        <%= link_to root_path, class: "btn btn-dark" do %>
+          <i class="fa fa-chevron-left"></i> Back to Calendar
+        <% end %>
+      <% elsif current_page?(new_user_session_path) %>
+        <%= link_to root_path, class: "btn btn-dark" do %>
+          <i class="fa fa-chevron-left"></i> Back to Home
+        <% end %>
+      <% end %>
+    </div>
+  </nav>
+  <div class="container pt-5 pb-5">
+    <div id="welcome" class="jumbotron">
+      <h2>Calendar Project</h2>
+    </div>
+    <div class="card card-instructions">
+      <div class="card-body">
+        <div class="col-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
+<% end %>
+</body>
+</html>

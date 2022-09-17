@@ -1,0 +1,34 @@
+<div class="back-div p-0 m-0">
+  <table class="p-0 m-0 table calendar-table">
+    <tbody>
+          <tr>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+            <td class="calendar-column calendar-back-column"></td>
+          </tr>
+    </tbody>
+  </table>
+</div>
+<div class="content-div">
+  <table class="calendar-table">
+    <thead class="calendar__head text-center">
+    <tr>
+      <th scope="col" class="calendar-column">Sun.</th>
+      <th scope="col" class="calendar-column">Mon.</th>
+      <th scope="col" class="calendar-column">Tue.</th>
+      <th scope="col" class="calendar-column">Wed.</th>
+      <th scope="col" class="calendar-column">Thu.</th>
+      <th scope="col" class="calendar-column">Fri.</th>
+      <th scope="col" class="calendar-column">Sat.</th>
+    </tr>
+    </thead>
+    <tbody id="calendar-body" class="table-bordered text-center calendar__body">
+    <%= render partial: 'calendars/calendar_body',
+               locals: { calendar: calendar, reminders_by_week: reminders_by_week } %>
+    </tbody>
+  </table>
+</div>

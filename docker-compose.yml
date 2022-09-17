@@ -1,0 +1,36 @@
+version: "3.3"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web-prod:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./calendar:/calendar
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    profiles: ["prod"]
+  web-test:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ./calendar:/calendar
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - chrome-server
+    profiles: ["test"]
+  chrome-server:
+    image: selenium/standalone-chrome:96.0
+    ports:
+      - "7900:7900"
+    shm_size: '2gb'
+    profiles: ["test"]

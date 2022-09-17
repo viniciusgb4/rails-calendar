@@ -1,0 +1,249 @@
+@mixin dark {
+  #color-selector {
+    border: 2px solid white;
+  }
+}
+
+@mixin light {
+  #color-selector {
+    border: none;
+  }
+}
+
+:root {
+  --color-opacity: 0.85;
+  --blue-1: #0669BF;
+  --blue-2: #0788D9;
+  --blue-3: #04588C;
+  --blue-4: #0B9ED9;
+  --blue-5: #14B5D9;
+  --pink-1: #F2D5DD;
+  --pink-2: #D996AE;
+  --pink-3: #F2CEE9;
+  --pink-4: #F2BDE9;
+  --pink-5: #F2E9E9;
+  --red-1: #F25774;
+  --red-2: #F28DA8;
+  --red-3: #D97059;
+  --red-4: #D90404;
+  --red-5: #590202;
+  --green-1: #164038;
+  --green-2: #365945;
+  --green-3: #055902;
+  --green-4: #62BF04;
+  --green-5: #95D904;
+  --yellow-1: #F2CB05;
+  --yellow-2: #F2B705;
+  --yellow-3: #F29F05;
+  --yellow-4: #F27405;
+  --yellow-5: #F25D27;
+  --purple-1: #B28BD9;
+  --purple-2: #DBD0F2;
+  --purple-3: #8E79D9;
+  --purple-4: #C9BDF2;
+  --purple-5: #9080F2;
+  --box-shadow-config: inset 0px 0 5px black;
+}
+
+.background-blue1 {
+  background: var(--blue-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-blue2 {
+  background: var(--blue-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-blue3 {
+  background: var(--blue-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-blue4 {
+  background: var(--blue-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-blue5 {
+  background: var(--blue-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-pink1 {
+  background: var(--pink-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-pink2 {
+  background: var(--pink-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-pink3 {
+  background: var(--pink-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-pink4 {
+  background: var(--pink-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-pink5 {
+  background: var(--pink-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-red1 {
+  background: var(--red-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-red2 {
+  background: var(--red-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-red3 {
+  background: var(--red-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-red4 {
+  background: var(--red-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-red5 {
+  background: var(--red-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-green1 {
+  background: var(--green-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-green2 {
+  background: var(--green-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-green3 {
+  background: var(--green-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-green4 {
+  background: var(--green-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-green5 {
+  background: var(--green-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-yellow1 {
+  background: var(--yellow-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-yellow2 {
+  background: var(--yellow-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-yellow3 {
+  background: var(--yellow-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-yellow4 {
+  background: var(--yellow-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-yellow5 {
+  background: var(--yellow-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-orange1 {
+  background: var(--orange-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-orange2 {
+  background: var(--orange-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-orange3 {
+  background: var(--orange-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-orange4 {
+  background: var(--orange-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-orange5 {
+  background: var(--orange-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-purple1 {
+  background: var(--purple-1);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-purple2 {
+  background: var(--purple-2);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-purple3 {
+  background: var(--purple-3);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-purple4 {
+  background: var(--purple-4);
+  box-shadow: var(--box-shadow-config);
+}
+
+.background-purple5 {
+  background: var(--purple-5);
+  box-shadow: var(--box-shadow-config);
+}
+
+.color-menu_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 2px;
+}
+
+.color-field {
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.color-field:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+@media (prefers-color-scheme: light) {
+  @include light
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark
+}

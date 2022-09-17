@@ -1,0 +1,46 @@
+<div data-type="rich" data-loaded="true" class="blob-viewer js-syntax-highlight"><div data-qa-selector="blob_viewer_file_content"><div data-rich-type="markup" data-path="README.md" class="blob-viewer">
+  <div class="file-content md">
+    <h1 dir="auto" data-sourcepos="1:1-1:7">
+      <a aria-hidden="true" href="#about" class="anchor" id="user-content-about"></a>ABOUT</h1>
+    <p dir="auto" data-sourcepos="2:1-2:141">Here are some important points about the project:</p>
+    <ul dir="auto" data-sourcepos="3:1-8:105">
+      <li data-sourcepos="3:1-3:76">the project was made in Rails 7 with Bootstrap 5 to help in the frontend;</li>
+      <li data-sourcepos="4:1-4:58">the user access control was implemented with Devise gem;</li>
+      <li data-sourcepos="5:1-5:90">the calendar are automatically updated with new reminders. For that, I used ActionCable;</li>
+      <li data-sourcepos="6:1-6:45">the project runs inside a Docker container;</li>
+      <li data-sourcepos="8:1-8:105">the interface has a dark and a light theme, that is applied accordingly with the browser configuration:</li>
+    </ul>
+    <h2 dir="auto" data-sourcepos="9:1-9:8">
+      <a aria-hidden="true" href="#dark" class="anchor" id="user-content-dark"></a>Dark:</h2>
+    <p style="text-align: center;">
+      <img class="js-lazy-loaded qa-js-lazy-loaded" decoding="async" width="100%" src="<%= asset_path('dark-theme.png') %>" loading="lazy">
+    </p>
+    <h2 dir="auto" data-sourcepos="14:1-14:9">
+      <a aria-hidden="true" href="#light" class="anchor" id="user-content-light"></a>Light:</h2>
+    <p style="text-align: center;">
+      <img class="js-lazy-loaded qa-js-lazy-loaded" decoding="async" width="100%" src="<%= asset_path('light-theme.png') %>" loading="lazy">
+    </p>
+    <h2 dir="auto" data-sourcepos="19:1-19:23">
+      <a aria-hidden="true" href="#running-the-calendar" class="anchor" id="user-content-running-the-calendar"></a>Running the Calendar</h2>
+    <p dir="auto" data-sourcepos="20:1-20:195">To run the Calendar, you need to have <em>docker</em> and <em>docker compose plugin</em> installed in your machine. After cloning the repository, go to the project root directory and run the following command:</p>
+    <p dir="auto" data-sourcepos="22:1-22:34"><code>docker compose --profile prod up</code></p>
+    <p dir="auto" data-sourcepos="24:1-24:69">You can access the calendar through the address: <a rel="nofollow noreferrer noopener" href="http://0.0.0.0:3000/">http://0.0.0.0:3000/</a></p>
+    </p>
+    <h2 dir="auto" data-sourcepos="26:1-26:20">
+      <a aria-hidden="true" href="#running-the-tests" class="anchor" id="user-content-running-the-tests"></a>Running the tests</h2>
+    <p dir="auto" data-sourcepos="27:1-27:56">To run the tests, you can execute the following command:</p>
+    <p dir="auto" data-sourcepos="29:1-29:64"><code>docker compose --profile test run --rm web-test bin/rails test</code></p>
+    <h2 dir="auto" data-sourcepos="31:1-31:23">
+      <a aria-hidden="true" href="#running-system-tests" class="anchor" id="user-content-running-system-tests"></a>Running System Tests</h2>
+    <p dir="auto" data-sourcepos="32:1-32:72">Finally, to run the System Tests, you can execute the following command:</p>
+    <p dir="auto" data-sourcepos="34:1-34:71"><code>docker compose --profile test run --rm web-test bin/rails test:system</code></p>
+    <p dir="auto" data-sourcepos="36:1-37:23">You can view the System Tests execution in your browser, through this link: <a rel="nofollow noreferrer noopener" href="http://localhost:7900/">http://localhost:7900/</a>.
+      First, click in Connect</p>
+    <p dir="auto" style="text-align: center;">
+      <img class="js-lazy-loaded qa-js-lazy-loaded" decoding="async" width="100%" src="<%= asset_path('noVNC.jpg') %>" loading="lazy">
+    </p>
+    <p dir="auto" data-sourcepos="43:1-43:75">Then, put <code>secret</code> in the Password field and click in <strong>Send Credentials</strong>.</p>
+  </div>
+
+</div>
+</div></div>

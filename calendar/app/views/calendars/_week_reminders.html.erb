@@ -1,0 +1,30 @@
+<tr class="p-0 m-0">
+  <td class="p-0 m-0" colspan="7">
+    <table>
+      <tbody class="reminder-tbody" data-controller="reminder" data-action="resize@window->reminder#addShowMore">
+      <tr>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+        <td class="calendar-column reminder-column p-0 m-0"></td>
+      </tr>
+      <% organize_week_reminders_in_rows(reminders_by_week[week]).each do |reminders_row| %>
+        <tr reminder-row="true">
+          <% reminders_row.each do |day| %>
+            <% if day[:reminder].nil? %>
+              <td class="calendar-column reminder-column"></td>
+            <% else %>
+              <td class="calendar-column reminder-column" colspan="<%= day[:colspan] %>">
+                <%= render partial: day[:reminder], locals: { colspan: day[:colspan] } %>
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </td>
+</tr>

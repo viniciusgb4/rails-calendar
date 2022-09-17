@@ -1,0 +1,15 @@
+<% if current_user %>
+  <div class="calendar">
+    <nav class="calendar__toolbar">
+      <div class="main-container toolbar__container" id="current-month">
+        <%= render partial: 'calendars/tools', locals: { calendar: @calendar } %>
+      </div>
+    </nav>
+    <div class="main-container">
+      <%= render partial: 'calendars/calendar', locals: { calendar: @calendar, reminders_by_week: @reminders_by_week } %>
+    </div>
+    <%= turbo_frame_tag :reminder_modal %>
+  </div>
+<% else %>
+  <%= render partial: 'calendars/about' %>
+<% end %>

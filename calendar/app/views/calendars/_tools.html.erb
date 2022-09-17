@@ -1,0 +1,24 @@
+<div class="toolbar__controllers" data-controller="calendar">
+  <%= link_to "Today", today_path, method: :get, class: "btn btn-dark", data: {action: "click->calendar#setToday"} %>
+  <%= link_to previous_page_path, method: :get, class: "btn btn-dark", id: "previous_page", data: {action: "click->calendar#setToday"} do %>
+    <i class="fa fa-chevron-left"></i>
+  <% end %>
+  <span class="month"><%= Date::ABBR_MONTHNAMES[calendar.current_page.month] %></span>,
+  <span><%= calendar.current_page.year %></span>
+  <%= link_to next_page_path, method: :get, class: "btn btn btn-dark", id: "next_page", data: {action: "click->calendar#setToday"} do %>
+    <i class="fa fa-chevron-right"></i>
+  <% end %>
+</div>
+<div>
+  <% if user_signed_in? %>
+    <div class="user-controllers" title="<%= current_user.email %>">
+          <span class="dropdown-toggle user-email" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <div id="user-email"><%= current_user.email %></div>
+          </span>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><%= link_to "Edit", edit_user_registration_path, class: 'dropdown-item', data: { turbo_method: :get } %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>

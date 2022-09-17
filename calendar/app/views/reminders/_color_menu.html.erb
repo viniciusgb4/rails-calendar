@@ -1,0 +1,18 @@
+<div class="dropdown ps-2 dropstart">
+  <button type="button" name="Color" id="color-selector"  type=week class="color-field opacity-75 background-<%= reminder.color %>" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+    <%= form.hidden_field :color, value: reminder.color, id: "color-input" %>
+  </button>
+  <div id="color-menu" class="dropdown-menu p-1" style="width: 300px">
+    <div class="color-menu_container" data-controller="color-menu">
+      <% for c in %w[blue green red pink yellow purple] %>
+        <% for n in 1..5 %>
+            <div class="text-center" value="<%= c %>1">
+              <button type="button" name="<%= c %><%= n %>" class="color-field background-<%= c %><%= n %>" id="color-<%= c %><%= n %>" data-color-menu-color-param="<%= c %><%= n %>"
+              data-action="click->color-menu#changeColor">
+              </button>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

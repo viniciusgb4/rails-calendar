@@ -1,0 +1,10 @@
+<%= link_to edit_reminder_path(reminder),
+            data: { turbo_frame: "reminder_modal" }, class: "day-reminder" do %>
+  <div class="text-start mb-1 p-0 m-0 background-<%= reminder.color %>"
+       title="<%= "#{reminder.to_s}" %>" style="width: <%= colspan * 13.5%>vw;">
+
+    <span><%= "#{reminder.title} (#{reminder.start_datetime.strftime('%H:%M')})" %></span>
+
+  </div>
+<% end %>
+

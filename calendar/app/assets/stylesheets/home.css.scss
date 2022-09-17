@@ -1,0 +1,55 @@
+@mixin dark {
+    :root {
+        --card-background-color: #2E2F30;
+        --card-text-color: #FFFFFF;
+        --link-color: #0B9ED9;
+    }
+}
+
+@mixin light {
+    :root {
+        --card-background-color: #FFFFFF;
+        --card-text-color: #2E2F30;
+        --link-color: #0B9ED9;
+    }
+}
+
+.jumbotron {
+    text-align: center;
+    background-image: asset-url('calendar.png');
+    background-size: cover;
+    height: 200px;
+    color: #2E2F30;
+    font-family: 'Helvetica Neue' !important;
+    font-stretch: expanded;
+    padding-top: 50px;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+
+.card-instructions {
+    background-color: var(--card-background-color);
+    color: var(--card-text-color);
+}
+
+.card-instructions table {
+    color: var(--card-text-color);
+}
+
+.card-instructions ul {
+    list-style: none;
+}
+
+.card-instructions li::before {
+    content: "\f111";
+    font-family: FontAwesome;
+    color: var(--card-text-color);
+    margin-right: 0.5rem;
+}
+
+@media (prefers-color-scheme: light) {
+    @include light
+}
+
+@media (prefers-color-scheme: dark) {
+    @include dark
+}

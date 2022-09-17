@@ -1,0 +1,29 @@
+<% calendar.current_page.weeks.each do |week| %>
+  <tr id="week-<%= week.to_s %>" class="p-0 m-0 week">
+    <td colspan="7">
+      <table>
+        <thead class="week-head">
+        <tr>
+          <% week.days.each do |day_date| %>
+            <th scope="col" class="calendar-column p-0 m-0">
+              <div id="cell-<%= day_date %>">
+                <div class="<%= "disabled" if day_date.month != calendar.current_page.month %>">
+                  <%= link_to new_reminder_path(date: day_date),
+                              data: { turbo_frame: :reminder_modal }, class: "calendar-day" do %>
+                      <span><%= day_date.day %></span>
+                    </div>
+                  <% end %>
+                  </div>
+              </div>
+            </th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody data-controller="week" , data-week-weekid-value="<%= week.to_s %>"
+               data-week-target="week" class="week-body">
+        <%= render partial: 'week_reminders', locals: { reminders_by_week: reminders_by_week, week: week } %>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+<% end %>

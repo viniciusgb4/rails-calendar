@@ -1,0 +1,14 @@
+<% alert_type = "alert-danger" if alert %>
+<% alert_type = "alert-success" if notice %>
+
+<% unless alert_type.nil? %>
+<div class="alert <%= alert_type %> alert-dismissible fade show" role="alert">
+<% if notice %>
+  <p><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p><%= alert %></p>
+<% end %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% end %>

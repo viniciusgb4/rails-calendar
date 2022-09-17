@@ -1,0 +1,44 @@
+<div id="reminder-modal-message">
+</div>
+<%= form_with(model: reminder) do |form| %>
+  <div class="modal-body">
+    <% invalid = reminder.errors.any? { |e| [:title, :description].include?(e) } %>
+
+    <div class="form-group">
+      <%= form.label :start_datetime, class: "form-label" %>
+      <%= form.datetime_field :start_datetime, value: reminder.start_datetime.strftime("%Y-%m-%dT%H:%M"), class: "form-control #{'is-invalid' if invalid}" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :end_datetime, class: "form-label" %>
+      <%= form.datetime_field :end_datetime, value: reminder.end_datetime.strftime("%Y-%m-%dT%H:%M"), class: "form-control #{'is-invalid' if invalid}" %>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-10">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control #{'is-invalid' if invalid}" %>
+      </div>
+      <div class="form-group col-2">
+        <%= form.label :color, class: "form-label" %>
+        <div>
+          <%= render partial: 'reminders/color_menu', locals: {reminder: reminder, form: form} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control #{'is-invalid' if invalid}" %>
+    </div>
+
+    <div class="modal-footer">
+      <% unless reminder.id.nil? %>
+        <%= link_to "Delete", reminder, class: "btn btn-danger", data: { turbo_method: :delete,
+                                                                         action: "turbo:click->reminder-modal#deleteReminder"}
+        %>
+      <% end %>
+      <%= button_to "Save", reminders_path(reminder), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

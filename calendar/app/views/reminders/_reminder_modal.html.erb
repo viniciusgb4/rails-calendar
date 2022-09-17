@@ -1,0 +1,12 @@
+<div class="modal fade" id="reminderModal" data-reminder-modal-target="reminderModal" tabindex="-1" aria-labelledby="reminderModalLabel" aria-hidden="true"
+     data-controller="reminder-modal", data-action="turbo:submit-end->reminder-modal#submitReminder">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reminderModalLabel"><%= action_name.capitalize %> Reminder</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= render partial: "reminders/form", locals: { reminder: @reminder } %>
+    </div>
+  </div>
+</div>

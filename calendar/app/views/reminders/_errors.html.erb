@@ -1,0 +1,10 @@
+<% if reminder.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <ul>
+      <% reminder.errors.full_messages.each do |msg| %>
+        <li class="error-item"><%= msg %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>

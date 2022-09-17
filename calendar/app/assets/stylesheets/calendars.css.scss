@@ -1,0 +1,329 @@
+@mixin dark {
+  :root {
+    --main-background--color: #1D232A;
+    --toolbar-background-color: #15191C;
+    --toolbar-text-color: #FFFFFF;
+    --day-reminder-color: #FFFFFF;
+    --calendar-head-text-color: #EFEFEF;
+    --calendar-body-text-color: #FFFFFF;
+    --week-head-color: #FFFFFF;
+    --calendar-border-color: #CCCCCC;
+    --day-color: #FFFFFF;
+    --day-color-hover: #C0C0C0;
+    --today-color: #3B84FA;
+    --bs-dark-rgb: #15191C;
+  }
+
+  .modal-content {
+    background-color: #15191C;
+    color: #FFFFFF;
+  }
+
+  .btn-close {
+    background-color: #FFFFFF;
+  }
+}
+
+@mixin light {
+    :root {
+      --main-background--color: #FFFFFF;
+      --toolbar-background-color: #C0C0C0;
+      --toolbar-text-color: #1D232A;
+      --day-reminder-color: #FFFFFF;
+      --calendar-head-text-color: #EFEFEF;
+      --calendar-body-text-color: #1D232A;
+      --week-head-color: #FFFFFF;
+      --calendar-border-color: #1D232A;
+      --day-color: #1D232A;
+      --day-color-hover: #C0C0C0;
+      --today-color: #3B84FA;
+    }
+}
+
+:root {
+  --bottom-gap: 0.5rem;
+  --tools-height: 3rem;
+  --calendar-height: calc(100vh - var(--tools-height) - var(--bottom-gap));
+  --calendar__head-height: 2rem;
+  --calendar__body-height: calc(100vh - var(--tools-height) - var(--calendar__head-height) - var(--bottom-gap));
+
+  /* cell height including days row and reminders rows */
+  --cell-height: calc(var(--calendar__body-height)/6);
+
+  --week__head-height: 1rem;
+
+  /* reminder cell height including only reminders rows */
+  --reminder-cell-height: calc(var(--cell-height) - var(--week__head-height) - var(--bottom-gap));
+
+  --calendar-column-width: 13.5vw;
+
+  --calandar-width: 94.5vw;
+  --popover-max-width: 375px;
+
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--main-background--color);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.error-item::before {
+  content: '\2731'
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: var(--tools-height) calc(100vh - var(--tools-height));
+}
+
+.calendar__toolbar {
+  background-color: var(--toolbar-background-color);
+  color: var(--toolbar-text-color);
+  display: flex;
+  align-items: center;
+}
+
+.month {
+  display: inline-block;
+  width: 30px;
+}
+
+.main-container {
+  width: var(--calandar-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.toolbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-controllers {
+  vertical-align: center;
+}
+
+#user-email::before {
+  content: '\f007\a0';
+  font-family: FontAwesome;
+  font-size: 1rem;
+  color: var(--toolbar-text-color);
+  white-space: pre;
+}
+
+.back-div {
+  z-index: -1;
+  position: fixed;
+  width: var(--calandar-width);
+  height: var(--calendar-height);
+}
+
+.content-div {
+  z-index: 2;
+  width: var(--calandar-width);
+  position: fixed;
+  height: var(--calendar-height);
+  overflow: hidden;
+  opacity: 0.75;
+}
+
+.calendar-table {
+  height: var(--calendar-height);
+}
+
+.calendar__head {
+  width: var(--calandar-width);
+  background-color: var(--calendar-head-text-color);
+  position: fixed;
+  height: var(--calendar__head-height);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2E2F30;
+}
+
+.calendar__body {
+  width: var(--calandar-width);
+  height: var(--calendar__body-height);
+  position: absolute;
+  top: var(--calendar__head-height);
+  overflow: hidden;
+  color: var(--calendar-body-text-color)
+}
+
+.week {
+  width: var(--calandar-width)!important;
+  height: var(--cell-height) !important;
+  max-height: var(--cell-height) !important;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden !important;
+}
+
+.week-head {
+  height: var(--week__head-height);
+  color: var(--week-head-color);
+}
+
+.week-body {
+  height: var(--reminder-cell-height) !important;
+  max-height: var(--reminder-cell-height) !important;
+}
+
+.reminder-tbody {
+  height: var(--reminder-cell-height) !important;
+  max-height: var(--reminder-cell-height) !important;
+  display: block;
+}
+
+.calendar-back-column {
+  border-right-width: 1px !important;
+  border-right-color: var(--calendar-border-color);
+  border-left-width: 1px !important;
+  border-left-color: var(--calendar-border-color);
+}
+
+.calendar-day {
+  width: 100% !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 500ms;
+  color: var(--day-color);
+}
+
+.calendar-day:hover {
+  text-decoration: underline overline;
+  color: var(--day-color-hover);
+}
+
+.disabled span {
+  color: #BBBBBB !important;
+}
+
+.today {
+  font-size: 1em;
+  background-color: var(--today-color);
+  padding: 1px 0.75rem;
+  border-radius: 5px;
+}
+
+.calendar-column {
+  width: var(--calendar-column-width);
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  height: 100%;
+  overflow: hidden;
+}
+
+.reminder-column {
+  border-width: 0 0;
+  overflow: hidden;
+}
+
+.day-reminder {
+  color: var(--day-reminder-color);
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  transition: 800ms;
+}
+
+.day-reminder span {
+  margin-left: 0.5rem;
+  font-weight: 700;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: var(--day-reminder-color);
+}
+
+.day-reminder div:hover {
+  box-shadow: none;
+  opacity: 1;
+}
+
+.show-more__link {
+  margin-left: 0.5rem;
+  color: hotpink;
+  z-index: auto;
+}
+
+.show-more__link::after {
+  content: ' more';
+}
+
+.show-more__link:hover {
+  color: deeppink;
+}
+
+@media screen and (max-height: 360px) {
+  .show-more {
+    position: relative;
+    bottom: 25px;
+    right: 5px;
+    font-size: 0.7rem;
+  }
+  .show-more__link::before {
+    content: '+';
+  }
+  .show-more__link::after {
+    content: none;
+  }
+  .calendar-day {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  #welcome {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+#user-email {
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  #user-email {
+    width: 20vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .show-more__link::before {
+    content: '+';
+  }
+  .show-more__link::after {
+    content: none;
+  }
+}
+
+.popover, .popover-body {
+  max-width: 375px;
+  width: 375px;
+}
+
+@media screen and (max-width: 375px) {
+  .popover, .popover-body {
+    max-width: 80vw;
+    width: 80vw;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @include light
+}
+
+@media (prefers-color-scheme: dark) {
+  @include dark
+}
