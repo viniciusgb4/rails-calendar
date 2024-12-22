@@ -4,8 +4,6 @@ Here are some important points about the projet:
 * the user access control was implemented with Devise gem;
 * the calendar are automatically updated with new reminders. For that, I used ActionCable;
 * the project runs inside a Docker container;
-* the calendar is available in this address: https://calendar-vgb.herokuapp.com/
-* in production, the app sends an e-mail with a confirmation link. I used my e-mail address (vinicius.esufg@gmail.com) as the From header.
 * the interface has a dark and a light theme, that is applied accordingly with the browser configuration:
 ## Dark:
 <p style="text-align: center;">
